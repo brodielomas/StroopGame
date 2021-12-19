@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+// This class was for testing implementation methods for the button input and updating the variables on the game screen (OUTDATED),
+// commented out to prevent confusion relating to other c# scripts.
 public class buttonHandler : MonoBehaviour
 {
     /*
@@ -47,7 +49,7 @@ public class buttonHandler : MonoBehaviour
         Debug.Log("CLICKED");
     }
 
-    
+    // main gameplay loop, determines the correct colors of the buttons and text, does actions accordingly.
     public void updateColour(){ 
         //titleText.color = Color.red;
         //Debug.Log("CLICKED");

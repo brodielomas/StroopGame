@@ -68,7 +68,7 @@ public class titleHandler : MonoBehaviour
     {
         // Displays the time passed since the scene has loaded
         timer = timer + Time.deltaTime;
-        timeText.text = ("Time: " + (timer * 10));
+        timeText.text = ("Time: " + (timer));
 
         // Gets time passed, reset each round to determine score given to player.
         roundTimeSpent = roundTimeSpent + Time.deltaTime;
@@ -115,7 +115,7 @@ public class titleHandler : MonoBehaviour
             // Checks the colors for the last round and updates score/time.
             CheckColours(currentButton);
             score.SetText("Score: " + currentScore);
-            finalTime = timer * 10;
+            finalTime = timer;
             
             if (currentScore > highestScore){
                 highestScore = currentScore;

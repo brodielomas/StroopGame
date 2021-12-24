@@ -15,6 +15,8 @@ public class titleHandler : MonoBehaviour
     public Button pinkButton;
     public TextMeshProUGUI score;
     public TextMeshProUGUI timeText;
+    public ParticleSystem particleObject;
+
     private int currentScore;
     private int wordNum;
     private int colorNum;
@@ -25,7 +27,8 @@ public class titleHandler : MonoBehaviour
     private float roundScore;
     private int highestScore;
     private TextMeshProUGUI titleText;
-
+    //private Vector2 mousePos;
+    private ParticleSystem.MainModule particleMain;
     private int prevColour;
     private static Color Pink = new Color(255, 0, 228);
     private string[] words = new string[4] {"Red", "Blue", "Yellow", "Pink"};
@@ -66,6 +69,8 @@ public class titleHandler : MonoBehaviour
 
         // Keeps the highscore from previous games
         highestScore = PlayerPrefs.GetInt("HighScore");
+        particleMain = particleObject.main;
+
     }
 
     // Update is called once per frame
@@ -84,6 +89,10 @@ public class titleHandler : MonoBehaviour
         if (roundScore <= 0){
             roundScore = 0;
         }
+
+        //mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        //particleObject.transform.position = new Vector3(mousePos.x, mousePos.y, 0f);
+
     }
 
     // Main gameplay loop, handles the score/time variables, the rounds for the game and checking/updating the displayed colors.
@@ -93,6 +102,7 @@ public class titleHandler : MonoBehaviour
         if (roundNum < 10){
             // checks the color and updates the random numbers for the color variables.
             CheckColours(currentButton);
+            particleObject.Play();
             wordNum = Random.Range(0,4);
             colorNum = Random.Range(0,4);
 
@@ -142,23 +152,30 @@ public class titleHandler : MonoBehaviour
     // This method, checks if the button pressed is the same visual color as the color being displayed to the player.
     private void CheckColours(Button currentButton){
 
+            // Sets position of the particle to the postion of the button currently being pressed.
+            particleObject.transform.position = currentButton.transform.position;
+
             // These statements check if the buttons match the color being displayed, if so (if the player is correct) they update the score.
             // Tried using a switch statement here but had issues with a constant value being experceted rather than a Color value.  
             if (currentButton == redButton && titleText.color == Color.red){
-                //currentScore = currentScore + 10;
                 currentScore = currentScore + (int)roundScore;
+                particleMain.startColor = Color.green;
             }
             else if (currentButton == blueButton && titleText.color == Color.blue){
-                //currentScore = currentScore + 10;
                 currentScore = currentScore + (int)roundScore;
+                particleMain.startColor = Color.green;
             }
             else if (currentButton == yellowButton && titleText.color == Color.yellow){
-                //currentScore = currentScore + 10;
                 currentScore = currentScore + (int)roundScore;
+                particleMain.startColor = Color.green;
             }
             else if (currentButton == pinkButton && titleText.color == Pink){
-                //currentScore = currentScore + 10;
                 currentScore = currentScore + (int)roundScore;
+                particleMain.startColor = Color.green;
+            }
+            else{
+                // If answer is wrong it displays the particles as red.
+                particleMain.startColor = Color.red;
             }
     }
 }

@@ -25,6 +25,8 @@ public class titleHandler : MonoBehaviour
     private float roundScore;
     private int highestScore;
     private TextMeshProUGUI titleText;
+
+    private int prevColour;
     private static Color Pink = new Color(255, 0, 228);
     private string[] words = new string[4] {"Red", "Blue", "Yellow", "Pink"};
     private Color[] colours = new Color[4] {Color.red, Color.blue, Color.yellow, Pink};
@@ -50,6 +52,9 @@ public class titleHandler : MonoBehaviour
             colorNum = Random.Range(0,4);
         }
 
+        // sets the previous color to current color
+        prevColour = colorNum;
+
         // Sets the color displayed to the string and color elements in their respective lists using the random numbers generated.
         titleText.text = words[wordNum];
         titleText.color = colours[colorNum];
@@ -66,9 +71,9 @@ public class titleHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Displays the time passed since the scene has loaded
+        // Displays the time passed since the scene has loaded at 2 decimal places.
         timer = timer + Time.deltaTime;
-        timeText.text = ("Time: " + (timer));
+        timeText.text = ("Time: " + (timer.ToString("F2")));
 
         // Gets time passed, reset each round to determine score given to player.
         roundTimeSpent = roundTimeSpent + Time.deltaTime;
@@ -92,11 +97,15 @@ public class titleHandler : MonoBehaviour
             colorNum = Random.Range(0,4);
 
             // Checks that the text and visual aspect of the color being displayed is not the same, if it's the same it continuously resets
-            // gets a new random number until they are different.
-            while (wordNum == colorNum){
+            // gets a new random number until they are different. Also checks if the current color is the same as the last color shown,
+            // if so it gets a new random color to ensure that there are no repeating colors.
+            while (wordNum == colorNum || colorNum == prevColour){
                 wordNum = Random.Range(0,4);
                 colorNum = Random.Range(0,4);
             }
+
+            // sets the previous color to current color
+            prevColour = colorNum;
 
             // Sets the color displayed to the string and color elements in their respective lists using the random numbers generated.
             titleText.text = words[wordNum];

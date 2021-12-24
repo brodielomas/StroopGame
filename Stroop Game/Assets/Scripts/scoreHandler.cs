@@ -19,12 +19,13 @@ public class scoreHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // gets the total score, total time and the highest score from the game scene and displays these values on the end/restart screen.
+        // gets the total score, total time and the highest score from the game scene and displays these values on the end/restart screen,
+        // also shows the time at 2 decimal places.
         score = PlayerPrefs.GetInt("Score");
         scoreText.text = ("Score: " + score);
 
         time = PlayerPrefs.GetFloat("Timer");
-        timerText.text = ("Time: " + time);
+        timerText.text = ("Time: " + time.ToString("F2"));
 
         highScore = PlayerPrefs.GetInt("HighScore");
         highScoreText.text = ("HIGHEST SCORE: " + highScore);

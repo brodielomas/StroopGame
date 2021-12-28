@@ -546,7 +546,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 6
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -1243,7 +1243,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 80
+      scalar: 250
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -1296,7 +1296,7 @@ ParticleSystem:
     rateOverDistance:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 10
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -5336,7 +5336,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 17
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -5396,8 +5396,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 175}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 0.0000038147, y: 159}
+  m_SizeDelta: {x: 288.51, y: 57.12}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &480618462
 MonoBehaviour:
@@ -6181,8 +6181,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 361, y: 218.9}
-  m_SizeDelta: {x: 311.1229, y: 52.197}
+  m_AnchoredPosition: {x: 392, y: 218.9}
+  m_SizeDelta: {x: 277.9, y: 52.198}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1199878408
 MonoBehaviour:

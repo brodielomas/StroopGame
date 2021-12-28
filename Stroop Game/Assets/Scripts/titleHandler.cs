@@ -9,30 +9,19 @@ using UnityEngine.SceneManagement;
 public class titleHandler : MonoBehaviour
 {
 
-    public Button redButton;
-    public Button blueButton;
-    public Button yellowButton;
-    public Button pinkButton;
-    public TextMeshProUGUI score;
-    public TextMeshProUGUI timeText;
+    public Button redButton, blueButton, yellowButton, pinkButton;
+    public TextMeshProUGUI score, timeText;
     public ParticleSystem particleObject;
 
-    private int currentScore;
-    private int wordNum;
-    private int colorNum;
-    private int roundNum;
-    private float timer;
-    private float finalTime;
-    private float roundTimeSpent;
-    private float roundScore;
-    private int highestScore;
+    private int currentScore, wordNum, colorNum, roundNum, highestScore, prevColour;
+    private float timer, finalTime, roundTimeSpent, roundScore;
     private TextMeshProUGUI titleText;
-    //private Vector2 mousePos;
     private ParticleSystem.MainModule particleMain;
-    private int prevColour;
     private static Color Pink = new Color(255, 0, 228);
     private string[] words = new string[4] {"Red", "Blue", "Yellow", "Pink"};
     private Color[] colours = new Color[4] {Color.red, Color.blue, Color.yellow, Pink};
+
+    //private Vector2 mousePos;
 
     // Start is called before the first frame update
     void Start()
@@ -71,6 +60,8 @@ public class titleHandler : MonoBehaviour
         highestScore = PlayerPrefs.GetInt("HighScore");
         particleMain = particleObject.main;
 
+        //highestScore = 0;
+
     }
 
     // Update is called once per frame
@@ -90,6 +81,7 @@ public class titleHandler : MonoBehaviour
             roundScore = 0;
         }
 
+        // Used as alternative for particle location, follows mouse position instead of button location
         //mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         //particleObject.transform.position = new Vector3(mousePos.x, mousePos.y, 0f);
 
@@ -125,7 +117,7 @@ public class titleHandler : MonoBehaviour
             score.SetText("Score: " + currentScore);
             roundNum = roundNum + 1;
             roundTimeSpent = 0;
-            roundScore = 50;
+            roundScore = 50;    
         }
     
         // Once all rounds are finished, then goes to restart screen.

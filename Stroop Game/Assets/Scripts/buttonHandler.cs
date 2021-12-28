@@ -15,7 +15,7 @@ public class buttonHandler : MonoBehaviour
     private int currentScore;
     private int roundNum;
 
-    // custom color object for oink since it does not exist in current selection of unity object colors
+    // custom color object for pink since it does not exist in current selection of unity object colors
     private static Color Pink = new Color(255, 0, 228);
     private string[] words = new string[4] {"Red", "Blue", "Yellow", "Pink"};
     private Color[] colours = new Color[4] {Color.red, Color.blue, Color.yellow, Pink};

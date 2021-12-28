@@ -92,7 +92,8 @@ public class titleHandler : MonoBehaviour
 
         // 10 Rounds in the game
         if (roundNum < 10){
-            // checks the color and updates the random numbers for the color variables.
+            // checks the color and updates the random numbers for the color variables. BUG: Particle continues playing when new button is pressed, location still
+            // updates but overlays with new particle, cannot resolve currently (using particleObject.Stop() hasn't resolved issue).
             CheckColours(currentButton);
             particleObject.Play();
             wordNum = Random.Range(0,4);
@@ -148,7 +149,7 @@ public class titleHandler : MonoBehaviour
             particleObject.transform.position = currentButton.transform.position;
 
             // These statements check if the buttons match the color being displayed, if so (if the player is correct) they update the score.
-            // Tried using a switch statement here but had issues with a constant value being experceted rather than a Color value.  
+            // Tried using a switch statement here but had issues with a constant value being experceted rather than a Color value. Not very efficient
             if (currentButton == redButton && titleText.color == Color.red){
                 currentScore = currentScore + (int)roundScore;
                 particleMain.startColor = Color.green;
